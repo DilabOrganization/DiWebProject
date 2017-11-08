@@ -1,4 +1,4 @@
-package skuniv.ac.di;
+package skuniv.ac.di.Controller;
 
 import java.text.DateFormat;
 import java.util.Date;
