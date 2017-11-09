@@ -33,5 +33,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Ky/Desktop/네이버에디터/cos.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
