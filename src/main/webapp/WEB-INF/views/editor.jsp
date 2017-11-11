@@ -9,9 +9,6 @@
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript"
 	src="resources/common/editer/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript"
-	src="resources/common/editer/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
-	charset="utf-8"></script>
 </head>
 <body>
 	<form method="POST" id="sendCtl" action="receiveText">
