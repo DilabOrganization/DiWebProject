@@ -19,7 +19,7 @@ public class EditorController {
 	
 	@RequestMapping(value="/edit", method=RequestMethod.GET)
 	public String Editor(Model model){
-		return "editor";
+		return "test";
 	}
 	@RequestMapping(value="/receiveText", method=RequestMethod.POST)
 	public ModelAndView ReciveEditor(HttpServletRequest request) throws UnsupportedEncodingException{

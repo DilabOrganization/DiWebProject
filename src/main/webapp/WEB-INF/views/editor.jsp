@@ -1,43 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript"
-	src="resources/common/editer/js/HuskyEZCreator.js" charset="utf-8"></script>
+<title>Summernote Sample</title>
+
+<!-- bootstrap + jquery -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+<!-- include summernote css/js-->
+<link href="resources/common/editor/summernote.css" rel="stylesheet">
+<script src="resources/common/editor/summernote.js"></script>
+
+<!-- summer note korean language pack -->
+<script src="resources/common/editor/lang/summernote-ko-KR.js"></script>
 </head>
 <body>
-	<form method="POST" id="sendCtl" action="receiveText">
-		<textarea name="smarteditor" id="smarteditor" rows="10" cols="100"></textarea>
-		<input type="button" id="savebutton" value="서버전송" />
-	</form>
-
+	<!-- <div class="container">
+		<h1 class="page-header">Summernote Sample</h1>
+		<form class="form-horizontal" method="POST" id="sendctl" action="receiveText">
+			<div class="form-group">
+				<label for="content" class="col-sm-2 control-label">내용입력</label>
+				<div class="col-sm-10">
+					<textarea name="content" id="content" class="summernote"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Save</button>
+				</div>
+			</div>
+		</form>
+	</div> -->
+	<textarea name="content" id="content" class="summernote"></textarea>
 	<script type="text/javascript">
-		var oEditors = [];
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef : oEditors,
-			elPlaceHolder : "smarteditor",
-			sSkinURI : "resources/common/editer/SmartEditor2Skin.html",
-			fCreator : "createSEditor2",
-			htParams : {
-				//툴바 사용여부
-				bUseToolbar : true,
-				//
-				bUseVerticalResizer : true,
-
-				bUseModeChanger : true,
-			}
-		});
-		$("#savebutton").click(function() {
-			oEditors.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-			alert($("#smarteditor").val());
-
-			$("#sendCtl").submit();
-		})
-	</script>
+  $(function() {
+    $('.summernote').summernote({
+      height: 300,          // 기본 높이값
+      minHeight: null,      // 최소 높이값(null은 제한 없음)
+      maxHeight: null,      // 최대 높이값(null은 제한 없음)
+      focus: true,          // 페이지가 열릴때 포커스를 지정함
+      lang: 'ko-KR',        // 한국어 지정(기본값은 en-US)
+      codemirror:{
+    	  theme:'monokai'
+      }
+     
+    });
+  });
+</script>
 </body>
 </html>
