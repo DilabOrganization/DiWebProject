@@ -32,7 +32,7 @@ public class EditorController {
 	public String ReciveEditor(HttpServletRequest request) throws UnsupportedEncodingException{
 		request.setCharacterEncoding("utf-8");
 		String text = request.getParameter("resultText");
-		System.out.println("resultText ; " + text);
+		System.out.println("resultText : " + text);
 		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 		EditorVO editorVO = new EditorVO();
 		editorVO.setResultText(text);

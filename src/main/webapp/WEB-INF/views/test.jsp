@@ -37,6 +37,8 @@
 <script src="resources/common/editor/lang/summernote-ko-KR.js"></script>
 <script src="resources/common/editor/js/editor-text.js?ver=1"
 	charset="utf-8"></script>
+	
+
 </head>
 <body>
 	<div class="container">
@@ -56,24 +58,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function() {
-			$('#summernote').summernote({
-				height : 300, // set editor height
-				minHeight : null, // set minimum height of editor
-				maxHeight : null, // set maximum height of editor
-				focus : true,
-				lang : 'ko-KR',
-				codemirror : { // codemirror options
-					theme : 'monokai'
-				}
-			});
-		});
-		var edit = function() {
-			$('#summernote').summernote({
-				focus : true
-			});
-		};
-	</script>
+	<script type="text/javascript" src="resources/common/editor/js/editor-call.js"></script>
 </body>
 </html>
