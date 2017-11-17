@@ -10,8 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import skuniv.ac.di.Vo.EditorVO;
 import skuniv.ac.di.Vo.PhotoVo;
 
 @Controller
@@ -21,11 +26,27 @@ public class EditorController {
 	public String Editor(Model model){
 		return "test";
 	}
-	@RequestMapping(value="/receiveText", method=RequestMethod.POST)
-	public ModelAndView ReciveEditor(HttpServletRequest request) throws UnsupportedEncodingException{
-		System.out.println("====================receiveText============");
+	
+	@RequestMapping(value="/receiveText", method=RequestMethod.GET)
+	@ResponseBody 
+	public String ReciveEditor(HttpServletRequest request) throws UnsupportedEncodingException{
 		request.setCharacterEncoding("utf-8");
-		String text = request.getParameter("smarteditor");
+		String text = request.getParameter("resultText");
+		System.out.println("resultText ; " + text);
+		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+		EditorVO editorVO = new EditorVO();
+		editorVO.setResultText(text);
+		return gson.toJson(editorVO);
+	}
+	
+	@RequestMapping(value="/previewEditor", method=RequestMethod.GET)
+	public ModelAndView previewEditorForm(HttpServletRequest request) throws UnsupportedEncodingException{
+		request.setCharacterEncoding("utf-8");
+		String text = request.getParameter("resultText");
+		System.out.println("resultText ; " + text);
+		if(text.equals("<p><br></p>")){
+			text = "빈페이지입니다.";
+		}
 		ModelAndView mv = new ModelAndView("displayEdit");
 		mv.addObject("text", text);
 		return mv;
